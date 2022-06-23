@@ -45,5 +45,19 @@ namespace DiemCong_DoanTrungHieu.Controllers
             }
             return this.Create();
         }
+
+        public ActionResult Delete(string id)
+        {
+            var hp = db.HocPhans.First(m => m.MaHP == id);
+            return View(hp);
+        }
+        [HttpPost]
+        public ActionResult Delete(string id, FormCollection collection)
+        {
+            var hp = db.HocPhans.Where(m => m.MaHP == id).First();
+            db.HocPhans.DeleteOnSubmit(hp);
+            db.SubmitChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

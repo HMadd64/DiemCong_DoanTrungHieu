@@ -49,6 +49,21 @@ namespace DiemCong_DoanTrungHieu.Controllers
             }
             return this.Create();
         }
+
+        public ActionResult Delete(string id)
+        {
+            var sv = db.SinhViens.First(m => m.MaSV == id);
+            return View(sv);
+        }
+        [HttpPost]
+        public ActionResult Delete(string id, FormCollection collection)
+        {
+            var sv = db.SinhViens.Where(m => m.MaSV == id).First();
+            db.SinhViens.DeleteOnSubmit(sv);
+            db.SubmitChanges();
+            return RedirectToAction("Index");
+        }
+
         public string ProcessUpload(HttpPostedFileBase file)
         {
             if (file == null)

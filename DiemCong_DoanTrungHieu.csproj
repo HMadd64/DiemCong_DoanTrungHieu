@@ -186,6 +186,8 @@
     <Content Include="Views\HocPhan\Index.cshtml" />
     <Content Include="Views\HocPhan\Details.cshtml" />
     <Content Include="Views\HocPhan\Create.cshtml" />
+    <Content Include="Views\SinhVien\Delete.cshtml" />
+    <Content Include="Views\HocPhan\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
